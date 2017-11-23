@@ -35,9 +35,8 @@ function listingUrl(json, imgObj, response, cb) {
   //}
 
 
-function apiRequest(response, searchword) {
-  console.log('searchword' + searchword);
-  request.get(`https://openapi.etsy.com/v2/listings/active?keywords=${searchword}&limit=1&location=United+Kingdom&min_price=1000&api_key=${apiKey}`, (err, res, body) => {
+function apiRequest(response, searchWord) {
+  request.get(`https://openapi.etsy.com/v2/listings/active?keywords=${searchWord}&limit=1&location=United+Kingdom&min_price=1000&api_key=${apiKey}`, (err, res, body) => {
     if (err) {
       process.stdout.write(`error ${err.message}`);
     }

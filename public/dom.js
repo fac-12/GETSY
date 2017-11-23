@@ -5,18 +5,16 @@ submitbutton.addEventListener('click', onSubmit, false);
 
 function onSubmit (event) {
   event.preventDefault();
-  var searchTerm = inputfield.value;
-  console.log(searchTerm);
+  const search = inputfield.value;
+  const searchTerm = search.split(" ").join("+");
   apiCall(searchTerm);
 }
 
-function apiCall(searchTerm){
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function(){
+function apiCall(searchTerm) {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resultObj = JSON.parse(xhr.responseText);
-      console.log(resultObj);
-      console.log(resultObj[0][0])
       updateDom(resultObj);
     }
   };

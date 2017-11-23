@@ -33,25 +33,13 @@ const staticFileHandler = (request, response, url) => {
   });
 };
 
-const apiHandler = (request, response) =>{
-        console.log(request);
-        const keyword = request.url;
-        console.log(request.url);
-        const parsed = queryString.parse(keyword);
-        console.log(parsed);
-        const searchword = parsed['/api'];
-        console.log('searchword 1', searchword);
-        apiRequest(response, searchword);
+const apiHandler = (request, response) => {
+  const keyword = request.url;
+  const parsed = queryString.parse(keyword);
+  const word = parsed['/api'];
+  const searchWord = encodeURIComponent(word);
+  apiRequest(response, searchWord);
 }
-    //     response.writeHead(200,{'Content-Type': 'application/json'}, function (error){
-    //     if (error){
-    //         console.log('apiHandler ' + error);
-    //         return;
-    //         }
-    //       });
-    //     response.end(JSON.stringify(result));
-    // };
-
 
 module.exports = {
   homeHandler,
