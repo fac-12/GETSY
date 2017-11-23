@@ -9,7 +9,7 @@ if(url === '/') {
     homeHandler(request, response);
 } else if (url.indexOf('/public/') !== -1) {
     staticFileHandler(request, response, url);
-} else if (url.indexOf('/api/') !== -1) {
+} else if (url.indexOf('/api') !== -1) {
     apiHandler(request, response, url);
   } else {
     response.writeHead(404);
