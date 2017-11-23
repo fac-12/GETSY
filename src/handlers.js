@@ -34,9 +34,14 @@ const staticFileHandler = (request, response, url) => {
 };
 
 const apiHandler = (request, response) =>{
-        // const keyword = request.url;
-        // const parsedKeyword = queryString.parse(keyword);
-        apiRequest(response);
+        console.log(request);
+        const keyword = request.url;
+        console.log(request.url);
+        const parsed = queryString.parse(keyword);
+        console.log(parsed);
+        const searchword = parsed['/api'];
+        console.log('searchword 1', searchword);
+        apiRequest(response, searchword);
 }
     //     response.writeHead(200,{'Content-Type': 'application/json'}, function (error){
     //     if (error){
