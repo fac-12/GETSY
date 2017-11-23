@@ -24,13 +24,13 @@ function listingUrl(json, imgObj, response, cb) {
       const listingUrl = listing.results[0].url;
       imgObj[0].push(title);
       imgObj[0].push(listingUrl);
+      cb(imgObj, response);
     });
   } //let count = 0;
   // for (let i = 0; i < json.results.length; i += 1) {
     listingCall(json, imgObj, response, cb)
     // count += 1;
     // if (count === 2) {
-      cb(imgObj, response);
     }
   //}
 
