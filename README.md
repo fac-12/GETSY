@@ -15,4 +15,4 @@ User Stories:
 
 4) If I try to input non alphanumeric characters into the search field,
 
-![planning image](assets/planning.jpg)
+![planning image](public/assets/planning.jpg)
