@@ -25,10 +25,10 @@ test('unknown route', (t) => {
   });
 });
 
-test('api route', (t) => {
-  shot.inject(router, { method: 'get', url: '/api/' }, (res) => {
-    t.equal(res.statusCode, 200, 'should respond with a status code of 200');
-    t.equal(typeof res.payload, 'string', 'should return an object');
-    t.end();
-  });
-});
+// test('api route', (t) => {
+//   shot.inject(router, { method: 'get', url: '/api/' }, (res) => {
+//     t.equal(res.statusCode, 200, 'should respond with a status code of 200');
+//     t.equal(typeof res.payload, 'string', 'should return an object');
+//     t.end();
+//   });
+// });
