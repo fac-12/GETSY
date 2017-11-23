@@ -1,4 +1,130 @@
 .imgEtsy {
   width: 350px;
-  height: auto;
+}
+
+.flex-container {
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;*/
+  font-family: 'Montserrat';
+}
+
+.container{
+  position:relative;
+  margin: 17% auto;
+  width: 75%;
+  text-align: center;
+
+}
+.heading {
+  font-weight: bolder;
+  font-size: 3.5rem;
+
+}
+
+.button {
+  width:10%;
+  margin-top: 2%;
+  font-size: 1.4rem;
+}
+
+.imgEtsy {
+  padding-top: 3%;
+  margin-top:
+}
+
+.input {
+  width: 50%;
+  display: block;
+  margin-left: 25%;
+  padding: 0.5%;
+  font-size: 1.4rem;
+}
+
+.form {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+body { background-color:#87ceeb; }
+#snow{
+    background: none;
+    font-family: Androgyne;
+    background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index:1;
+    -webkit-animation: snow 10s linear infinite;
+    -moz-animation: snow 10s linear infinite;
+    -ms-animation: snow 10s linear infinite;
+    animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+
+@media  screen and (max-width: 725px)  {
+
+  body{
+    background-color: red;
+  }
+
+  .input{
+    width: 80%;
+    margin-left: 10%;
+
+  }
+  .button{
+    width:15%;
+  }
+
+
+}
+
+
+@media  screen and (max-width: 375px)  {
+
+  body{
+    background-color: red;
+  }
+
+  .container {
+    margin-top: 5%;
+  }
+
+ h1{
+   margin-bottom: 2%;
+ }
+  .input{
+    width: 80%;
+    margin-left: 10%;
+
+  }
+
+  .imgEtsy{
+    width:100%;
+  }
+
 }
