@@ -24,20 +24,19 @@ function listingUrl(json, imgObj, response, cb) {
       const listingUrl = listing.results[0].url;
       imgObj[0].push(title);
       imgObj[0].push(listingUrl);
+      cb(imgObj, response);
     });
   } //let count = 0;
   // for (let i = 0; i < json.results.length; i += 1) {
     listingCall(json, imgObj, response, cb)
     // count += 1;
     // if (count === 2) {
-      cb(imgObj, response);
     }
   //}
 
 
-function apiRequest(response, searchword) {
-  console.log('searchword' + searchword);
-  request.get(`https://openapi.etsy.com/v2/listings/active?keywords=${searchword}&limit=1&location=United+Kingdom&min_price=1000&api_key=${apiKey}`, (err, res, body) => {
+function apiRequest(response, searchWord) {
+  request.get(`https://openapi.etsy.com/v2/listings/active?keywords=${searchWord}&limit=1&location=United+Kingdom&min_price=1000&api_key=${apiKey}`, (err, res, body) => {
     if (err) {
       process.stdout.write(`error ${err.message}`);
     }
