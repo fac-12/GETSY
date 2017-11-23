@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const queryString = require('querystring');
+const apiRequest = require('./apiHandler')
 
 const homeHandler = (request, response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html');
@@ -32,7 +33,7 @@ const staticFileHandler = (request, response, url) => {
   });
 };
 
-const apiHandler = (request, response, url) =>{
+const apiHandler = (request, response) =>{
         // const keyword = request.url;
         // const parsedKeyword = queryString.parse(keyword);
         var result = apiRequest();

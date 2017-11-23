@@ -15,7 +15,7 @@ if(url === '/') {
     response.writeHead(404);
     response.end('Page not found');
 }
-
+}
 
 module.exports = router;
 
