@@ -7,7 +7,8 @@ submitbutton.addEventListener('click', onSubmit, false);
 function isValid(search){
   if (/^[a-z ]+$/i.test(search)){
     const searchTerm = search.split(" ").join("+");
-    apiCall(searchTerm)
+    apiCall(searchTerm);
+    inputfield.value = "";
   } else{
     throw new Error('Please enter letters only')
   }
@@ -40,30 +41,31 @@ xhr.send();
 };
 
 
-function updateDom(resultObj){
-  console.log(resultObj);
-  var url = resultObj[0][0];
+function updateDom(resultObj) {
+  const url = resultObj[0][0];
   image.src = url;
-  var info = resultObj[0][1]
-  var listingUrl = resultObj[0][2];
-  var divElement = document.getElementById('listing');
-  while(divElement.firstChild){
+  const info = resultObj[0][1]
+  const listingUrl = resultObj[0][2];
+  const listingPrice = "£" + resultObj[0][3];
+  const divElement = document.getElementById('listing');
+  while (divElement.firstChild) {
     divElement.removeChild(divElement.firstChild);
   }
-  var para = document.createElement('p');
-  var infotext = document.createTextNode(info);
+  const para = document.createElement('a');
+  const infotext = document.createTextNode(info);
   para.appendChild(infotext);
   divElement.appendChild(para);
-  var urlElement = document.getElementById('listingUrl');
-  while(urlElement.firstChild){
-    urlElement.removeChild(urlElement.firstChild)
-  }
-  var paraUrl = document.createElement('p');
-  var urltext = document.createTextNode(listingUrl);
-  paraUrl.appendChild(urltext);
-  urlElement.appendChild(paraUrl);
+  para.href = listingUrl;
+  para.className = 'listingTitle';
+  para.target="_blank";
+  const price = document.createElement('p');
+  const infoPrice = document.createTextNode(listingPrice);
+  price.appendChild(infoPrice);
+  divElement.appendChild(price);
 }
+
 
 function noItemsFound(res){
   alert(res);
 }
+
