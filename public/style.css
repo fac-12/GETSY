@@ -15,16 +15,12 @@ p {
 }
 
 .flex-container {
-  /*display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;*/
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
 }
 
 .container{
   position:relative;
-  margin: 17% auto;
+  margin: 2% auto;
   width: 75%;
   text-align: center;
 
@@ -143,6 +139,10 @@ body { background-color:#87ceeb; }
 
   .imgEtsy{
     width:100%;
+  }
+
+  .button{
+    width:25%;
   }
 
 }
