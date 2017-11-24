@@ -29,6 +29,7 @@ function updateDom(resultObj) {
   image.src = url;
   const info = resultObj[0][1]
   const listingUrl = resultObj[0][2];
+  const listingPrice = "£" + resultObj[0][3];
   const divElement = document.getElementById('listing');
   while (divElement.firstChild) {
     divElement.removeChild(divElement.firstChild);
@@ -38,4 +39,8 @@ function updateDom(resultObj) {
   para.appendChild(infotext);
   divElement.appendChild(para);
   para.href = listingUrl;
+  const price = document.createElement('p');
+  const infoPrice = document.createTextNode(listingPrice);
+  price.appendChild(infoPrice);
+  divElement.appendChild(price);
 }

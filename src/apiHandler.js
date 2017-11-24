@@ -22,8 +22,10 @@ function listingUrl(json, imgObj, response, cb) {
       const listing = JSON.parse(body);
       const title = listing.results[0].title;
       const listingUrl = listing.results[0].url;
+      const price = listing.results[0].price;
       imgObj[0].push(title);
       imgObj[0].push(listingUrl);
+      imgObj[0].push(price);
       cb(imgObj, response);
     });
   }
