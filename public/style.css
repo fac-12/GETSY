@@ -1,3 +1,15 @@
+a {
+  text-decoration: underline;
+  color: black;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
 .imgEtsy {
   width: 350px;
 }
@@ -51,6 +63,7 @@
 .info-container {
   display: flex;
   flex-direction: column;
+  margin-top: 2%;
 }
 
 body { background-color:#87ceeb; }

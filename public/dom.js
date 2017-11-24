@@ -39,6 +39,8 @@ function updateDom(resultObj) {
   para.appendChild(infotext);
   divElement.appendChild(para);
   para.href = listingUrl;
+  para.className = 'listingTitle';
+  para.target="_blank";
   const price = document.createElement('p');
   const infoPrice = document.createTextNode(listingPrice);
   price.appendChild(infoPrice);
