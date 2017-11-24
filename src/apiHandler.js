@@ -33,12 +33,19 @@ function listingUrl(json, imgObj, response, cb) {
 }
 
 function apiRequest(response, searchWord) {
+
   request.get(`https://openapi.etsy.com/v2/listings/active?keywords=${searchWord}&limit=1&location=United+Kingdom&max_price=10&api_key=${apiKey}`, (err, res, body) => {
+
     if (err) {
       process.stdout.write(`error ${err.message}`);
     }
     const json = JSON.parse(body);
-    imageApi(json, response);
+    if(json.results.length === 0){
+      response.writeHead(404, { 'Content-Type': 'text/plain'});
+      response.end('No items found, try again');
+    } else {
+      imageApi(json, response);
+    }
   });
 }
 

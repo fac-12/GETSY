@@ -1,22 +1,39 @@
 var submitbutton = document.getElementById('submitbutton');
 var image = document.getElementById('image');
+var inputfield = document.getElementById('inputfield');
 
 submitbutton.addEventListener('click', onSubmit, false);
 
-function onSubmit (event) {
+function isValid(search){
+  if (/^[a-z ]+$/i.test(search)){
+    const searchTerm = search.split(" ").join("+");
+    apiCall(searchTerm);
+    inputfield.value = "";
+  } else{
+    throw new Error('Please enter letters only')
+  }
+}
+
+function onSubmit(event) {
   event.preventDefault();
   const search = inputfield.value;
-  const searchTerm = search.split(" ").join("+");
-  apiCall(searchTerm);
-  inputfield.value = "";
+
+  try {
+    isValid(search);
+  } catch (err) {
+    alert(err);
+  }
 }
 
 function apiCall(searchTerm) {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200){
+      console.log(xhr.responseText);
       var resultObj = JSON.parse(xhr.responseText);
       updateDom(resultObj);
+    } else if (this.readyState ==4 && this.status == 404){
+      noItemsFound(xhr.responseText);
     }
   };
 xhr.open('GET', '/api' + "=" + searchTerm, true);
@@ -46,3 +63,9 @@ function updateDom(resultObj) {
   price.appendChild(infoPrice);
   divElement.appendChild(price);
 }
+
+
+function noItemsFound(res){
+  alert(res);
+}
+
